@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, SegmentButton, AlertController } from 'ionic-angular';
+import { Validators, FormGroup, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'page-contact',

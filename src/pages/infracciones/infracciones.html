@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Infracciones</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -12,18 +12,18 @@
   </ion-card-header>
 
   <ion-card-content>
-  <ion-row>
+  <ion-row *ngFor=" let item of infraccion">
     <ion-col>
     <ion-label class="label-detail-title">Fecha</ion-label>
-      fecha
+      {{item.fecha}}
     </ion-col>
     <ion-col>
     <ion-label class="label-detail-title">Hora</ion-label>
-     Hora
+     {{item.hora}}
     </ion-col>
  <ion-col>
     <ion-label class="label-detail-title">Lugar</ion-label>
-     Lugar
+     {{item.lugar}}
     </ion-col>
   </ion-row>
 
@@ -38,36 +38,36 @@
   </ion-card-header>
 
   <ion-card-content>
-  <ion-row>
+  <ion-row *ngFor=" let item of infraccion">
     <ion-col>
     <ion-label class="label-detail-title">Tipo de vehiculo</ion-label>
-      Tipo de Vehículo
+      {{item.tipo_vehiculo}}
     </ion-col>
     <ion-col>
     <ion-label class="label-detail-title">Modelo</ion-label>
-     Modelo
+     {{item.modelo_vehiculo}}
     </ion-col>
    <ion-col>
     <ion-label class="label-detail-title">año</ion-label>
-     Año
+     {{item.ano_vehiculo}}
     </ion-col>
      <ion-col>
     <ion-label class="label-detail-title">Placa</ion-label>
-     Placa
+     {{item.placa_vehiculo}}
     </ion-col>
   </ion-row>
-<ion-row>
+<ion-row *ngFor=" let item of infraccion">
    <ion-col>
     <ion-label class="label-detail-title">Color</ion-label>
-     Color
+     {{item.color_vehiculo}}
     </ion-col>
      <ion-col>
     <ion-label class="label-detail-title">Serial</ion-label>
-     Serial Nº
+     {{item.serial_vehiculo}}
     </ion-col>
      <ion-col>
     <ion-label class="label-detail-title">Retuvo Vehiculo</ion-label>
-     Retuvo Vehículo
+     {{item.retuvo_vehiculo}}
     </ion-col>
 </ion-row>
   </ion-card-content>
@@ -80,14 +80,14 @@
     Norma
   </ion-card-header>
   <ion-card-content>
-  <ion-row>
+  <ion-row *ngFor=" let item of infraccion">
     <ion-col>
     <ion-label class="label-detail-title">Articulo</ion-label>
-      Articulo
+     {{item.id_articulo}}
     </ion-col>
     <ion-col>
     <ion-label class="label-detail-title">Retuvo Licencia</ion-label>
-     Retuvo Licencia
+    {{item.retuvo_licencia}}
     </ion-col>
   </ion-row>
 
@@ -99,9 +99,8 @@
   <ion-card-header>
     Esta Infraccion es sancionada con MULTA
   </ion-card-header>
-  <ion-card-content>
-    <ion-label> en Bsf: </ion-label>
-      Bsf.
+  <ion-card-content *ngFor=" let item of infraccion">
+     {{ item.importe_pagar | currency:'bsf'}}
   </ion-card-content>
 
 </ion-card>
