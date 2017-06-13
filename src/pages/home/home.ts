@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import {InfraccionesPage} from "../infracciones/infracciones";
 
 import { InfraccionesService } from '../../providers/infracciones';
 
@@ -10,20 +11,26 @@ import { InfraccionesService } from '../../providers/infracciones';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController,
-               private _ps: InfraccionesService ) {
+  data: any;
 
+  constructor(public navCtrl: NavController,
+    private _ps: InfraccionesService,
+     public navParams: NavParams,
+     public viewCtrl: ViewController) {
+
+    this.viewCtrl.dismiss();
+
+    this.data = {};
+    this.data.id = {};
   }
 
-  /*getdata(){
-    this._ps.cargartodos().then((data)=>{
+buscar(){
+  let id = this.data.id;
+  console.log("Dato enviado", id);
+  this.navCtrl.push (InfraccionesPage, { "ID":
+      id });
 
-      if(data){
-        console.log('Correcto');
-      }else{
-        console.log('Error');
-      }
-    })
-  }*/
+}
+
 
 }

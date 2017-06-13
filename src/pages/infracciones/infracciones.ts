@@ -21,13 +21,16 @@ data:any = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public http: Http ) {
+
+    console.log("dato recibido:", navParams);
+    this.data = this.navParams.get('ID');
     this.cargartodos();
    /* this.data  = this.navParams.get("ID")
     console.log(this.data);*/
   }
   cargartodos( ){
 
-     let url = URL_SERVICIOS + "infracciones/1";
+     let url = URL_SERVICIOS + "infracciones/" + this.data;
 
      this.http.get( url )
          .map( resp => resp.json() )
@@ -36,6 +39,7 @@ data:any = {};
 
            if(data.error){
                console.log("error");
+               console.log(data.error);
            }else{
              this.infraccion.push(data);
              console.log(this.infraccion);

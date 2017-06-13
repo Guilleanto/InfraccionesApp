@@ -1,108 +1,29 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title text-center>Policía Nacional Bolivariana</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-card>
-
-  <ion-card-header>
-    Infracción
-  </ion-card-header>
-
-  <ion-card-content>
-  <ion-row>
-    <ion-col>
-    <ion-label class="label-detail-title">Fecha</ion-label>
-      fecha
-    </ion-col>
-    <ion-col>
-    <ion-label class="label-detail-title">Hora</ion-label>
-     Hora
-    </ion-col>
- <ion-col>
-    <ion-label class="label-detail-title">Lugar</ion-label>
-     Lugar
-    </ion-col>
-  </ion-row>
-
-  </ion-card-content>
-
-</ion-card>
+<ion-content  padding>
 
 <ion-card>
-
-  <ion-card-header>
-   Vehículo
-  </ion-card-header>
-
-  <ion-card-content>
-  <ion-row>
-    <ion-col>
-    <ion-label class="label-detail-title">Tipo de vehiculo</ion-label>
-      Tipo de Vehículo
-    </ion-col>
-    <ion-col>
-    <ion-label class="label-detail-title">Modelo</ion-label>
-     Modelo
-    </ion-col>
-   <ion-col>
-    <ion-label class="label-detail-title">año</ion-label>
-     Año
-    </ion-col>
-     <ion-col>
-    <ion-label class="label-detail-title">Placa</ion-label>
-     Placa
-    </ion-col>
-  </ion-row>
-<ion-row>
-   <ion-col>
-    <ion-label class="label-detail-title">Color</ion-label>
-     Color
-    </ion-col>
-     <ion-col>
-    <ion-label class="label-detail-title">Serial</ion-label>
-     Serial Nº
-    </ion-col>
-     <ion-col>
-    <ion-label class="label-detail-title">Retuvo Vehiculo</ion-label>
-     Retuvo Vehículo
-    </ion-col>
-</ion-row>
-  </ion-card-content>
+  <img src="assets/img/logopagina.png">
 
 </ion-card>
 
-<ion-card>
 
-  <ion-card-header>
-    Norma
-  </ion-card-header>
-  <ion-card-content>
-  <ion-row>
-    <ion-col>
-    <ion-label class="label-detail-title">Articulo</ion-label>
-      Articulo
-    </ion-col>
-    <ion-col>
-    <ion-label class="label-detail-title">Retuvo Licencia</ion-label>
-     Retuvo Licencia
-    </ion-col>
-  </ion-row>
+<button class="nueva-infraccion" ion-button secondary  block>Nueva Infracción </button>
 
-  </ion-card-content>
+<ion-list class="list-home">
+<h2 text-center>Buscar Infraccion</h2>
+   <ion-item>
+    <ion-input type="number" placeholder="Ingrese Codigo de Infracción" [(ngModel)]="data.id"></ion-input>
+  </ion-item>
 
-</ion-card>
-<ion-card>
 
-  <ion-card-header>
-    Esta Infraccion es sancionada con MULTA
-  </ion-card-header>
-  <ion-card-content>
-    <ion-label> en Bsf: </ion-label>
-      Bsf.
-  </ion-card-content>
+</ion-list>
+<button ion-button [disabled]="data.id.length == null || data.id.length < 1" (click)="buscar()" block>Buscar </button>
 
-</ion-card>
+
+
 </ion-content>
