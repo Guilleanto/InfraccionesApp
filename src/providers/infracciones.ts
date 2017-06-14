@@ -18,28 +18,10 @@ resultado:any []= [];
   ionViewDidEnter(){
 
   }
-   /*cargartodos( ){
 
-     let url = URL_SERVICIOS + "infracciones/1";
 
-     this.http.get( url )
-         .map( resp => resp.json() )
-         .subscribe( data =>{
-           console.log(data);
-
-           if(data.error){
-               console.log("error");
-           }else{
-             this.infraccion.push(data);
-             console.log(this.infraccion);
-           }
-
-         })
-
-     }*/
-
-    buscar_infraccion(id:any ) {
-         let url = URL_SERVICIOS + "infracciones" + id;
+    buscar_infraccion(cedula:any ) {
+         let url = URL_SERVICIOS + "infractorapi/" + cedula;
 
          this.http.get( url )
                .subscribe (resp =>{

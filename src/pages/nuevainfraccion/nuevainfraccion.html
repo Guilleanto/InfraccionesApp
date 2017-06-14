@@ -1,0 +1,73 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Nuevainfraccion</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list class="list-home">
+<h2 text-center>Registrar Infraccion</h2>
+
+<form  #form="ngForm" novalidate>
+
+   <ion-item>
+    Fecha
+    <ion-input type="" placeholder="Fecha" [(ngModel)]="fecha" [ngModelOptions]="{standalone: true}"  ></ion-input>
+  </ion-item>
+<ion-item>
+    Hora
+    <ion-input type="" placeholder="hora" [(ngModel)]="hora" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    lugar
+    <ion-input type="" placeholder="lugar" [(ngModel)]="lugar" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+<ion-item>
+    tipo de vehiculo
+    <ion-input type="number" placeholder="tipo de vehiculo " [(ngModel)]="tipo_vehiculo" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    modelo
+    <ion-input type="" placeholder="Modelo de Vehiculo" [(ngModel)]="modelo_vehiculo" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    Año
+    <ion-input type="" placeholder="Año Vehiculo" [(ngModel)]="ano_vehiculo" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+<ion-item>
+    Placa
+    <ion-input type="" placeholder="Placa" [(ngModel)]="placa_vehiculo" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    Color
+    <ion-input type="" placeholder="Color" [(ngModel)]="color_vehiculo" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    Serial
+    <ion-input type="number" placeholder="Serial" [(ngModel)]="serial_vehiculo" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    Retuvo Vehiculo
+    <ion-input type="" placeholder="Retuvo Vehiculo" [(ngModel)]="retuvo_vehiculo" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    articulo
+    <ion-input type="" placeholder="Articulo" [(ngModel)]="id_articulo" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    retuvo licencia
+    <ion-input type="" placeholder="Retuvo Licencia" [(ngModel)]="retuvo_licencia" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item><ion-item>
+    importe a pagar
+    <ion-input type="number" placeholder="Importe a Pagar" [(ngModel)]="importe_pagar" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+
+
+</form>
+<button ion-button type="submit" (click)="registrar()" large>Guardar</button>
+</ion-list>
+</ion-content>

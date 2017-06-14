@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 import {InfraccionesPage} from "../infracciones/infracciones";
 
 import { InfraccionesService } from '../../providers/infracciones';
+import {NuevainfraccionPage} from "../nuevainfraccion/nuevainfraccion";
 
 
 @Component({
@@ -21,16 +22,18 @@ export class HomePage {
     this.viewCtrl.dismiss();
 
     this.data = {};
-    this.data.id = {};
+    this.data.cedula = {};
   }
 
 buscar(){
-  let id = this.data.id;
-  console.log("Dato enviado", id);
+  let cedula = this.data.cedula;
+  console.log("Dato enviado", cedula);
   this.navCtrl.push (InfraccionesPage, { "ID":
-      id });
+      cedula });
 
 }
-
+nueva(){
+  this.navCtrl.push( NuevainfraccionPage );
+}
 
 }

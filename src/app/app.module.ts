@@ -10,10 +10,11 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { InfraccionesPage } from '../pages/infracciones/infracciones';
+import { NuevainfraccionPage } from '../pages/nuevainfraccion/nuevainfraccion';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { UsuarioService } from '../providers/usuario';
+import { UsuarioService } from '../providers/registrar';
 import { InfraccionesService } from '../providers/infracciones';
 
 @NgModule({
@@ -23,7 +24,8 @@ import { InfraccionesService } from '../providers/infracciones';
     ContactPage,
     HomePage,
     TabsPage,
-    InfraccionesPage
+    InfraccionesPage,
+    NuevainfraccionPage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { InfraccionesService } from '../providers/infracciones';
     ContactPage,
     HomePage,
     TabsPage,
-    InfraccionesPage
+    InfraccionesPage,
+    NuevainfraccionPage
   ],
   providers: [
     StatusBar,

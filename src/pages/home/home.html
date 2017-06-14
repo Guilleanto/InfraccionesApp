@@ -12,17 +12,17 @@
 </ion-card>
 
 
-<button class="nueva-infraccion" ion-button secondary  block>Nueva Infracción </button>
+<button class="nueva-infraccion" (click)="nueva()" ion-button secondary  block>Nueva Infracción </button>
 
 <ion-list class="list-home">
 <h2 text-center>Buscar Infraccion</h2>
    <ion-item>
-    <ion-input type="number" placeholder="Ingrese Codigo de Infracción" [(ngModel)]="data.id"></ion-input>
+    <ion-input type="number" placeholder="Ingrese Cedula de indentidad" [(ngModel)]="data.cedula"></ion-input>
   </ion-item>
 
 
 </ion-list>
-<button ion-button [disabled]="data.id.length == null || data.id.length < 1" (click)="buscar()" block>Buscar </button>
+<button ion-button [disabled]="data.cedula.length == null || data.cedula.length < 1" (click)="buscar()" block>Buscar </button>
 
 
 

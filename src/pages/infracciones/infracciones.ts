@@ -5,6 +5,11 @@ import 'rxjs/add/operator/map';
 
 //import { InfraccionesService } from '../../providers/infracciones';
 import { URL_SERVICIOS } from '../../config/url.services';
+import {AlertController} from "ionic-angular";
+
+import {HomePage} from "../home/home";
+import {NuevainfraccionPage} from "../nuevainfraccion/nuevainfraccion";
+
 
 
 
@@ -20,7 +25,7 @@ resultado:any []= [];
 data:any = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public http: Http ) {
+    public http: Http, public alertCtrl: AlertController ) {
 
     console.log("dato recibido:", navParams);
     this.data = this.navParams.get('ID');
@@ -30,7 +35,7 @@ data:any = {};
   }
   cargartodos( ){
 
-     let url = URL_SERVICIOS + "infracciones/" + this.data;
+     let url = URL_SERVICIOS + "infractorapi/" + this.data;
 
      this.http.get( url )
          .map( resp => resp.json() )
@@ -38,10 +43,28 @@ data:any = {};
            console.log(data);
 
            if(data.error){
-               console.log("error");
-               console.log(data.error);
+               let alert = this.alertCtrl.create({
+                            title: "No Hay Registro",
+                            subTitle: "desea Registrar nuevo Infractor?",
+                            buttons: [
+                              {
+                                text:"Si",
+                                handler: ()=>{
+                                    this.navCtrl.push(NuevainfraccionPage);
+                                }
+                              },
+                              {
+                                text: 'No',
+                                role: 'cancel',
+                                handler: () => {
+                                  this.navCtrl.setRoot(HomePage);
+                              }
+                                  }
+                            ]
+                          });
+               alert.present()
            }else{
-             this.infraccion.push(data);
+             this.infraccion.push(data[0]);
              console.log(this.infraccion);
            }
 

@@ -1,1 +1,1 @@
-export { UsuarioService } from "./usuario";
+export { UsuarioService } from "./registrar";
