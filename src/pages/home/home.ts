@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 import {InfraccionesPage} from "../infracciones/infracciones";
 
 import { InfraccionesService } from '../../providers/infracciones';
-import {NuevainfraccionPage} from "../nuevainfraccion/nuevainfraccion";
+import { NuevainfraccionPage } from "../nuevainfraccion/nuevainfraccion";
 
 
 @Component({
@@ -11,6 +11,9 @@ import {NuevainfraccionPage} from "../nuevainfraccion/nuevainfraccion";
   templateUrl: 'home.html'
 })
 export class HomePage {
+
+
+
 
   data: any;
 

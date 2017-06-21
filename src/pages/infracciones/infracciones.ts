@@ -21,6 +21,7 @@ import {NuevainfraccionPage} from "../nuevainfraccion/nuevainfraccion";
 export class InfraccionesPage {
 
 infraccion:any []= [];
+infracciondata:any [] = [];
 resultado:any []= [];
 data:any = {};
 
