@@ -28,15 +28,11 @@ export class HomePage {
     this.data.cedula = {};
   }
 
-buscar(){
+buscar(){ //inicia busqueda por cedula y se lleva a otra vista con esa cedula
   let cedula = this.data.cedula;
   console.log("Dato enviado", cedula);
   this.navCtrl.push (InfraccionesPage, { "ID":
       cedula });
 
-}
-nueva(){
-  this.navCtrl.push( NuevainfraccionPage );
-}
-
+      }
 }

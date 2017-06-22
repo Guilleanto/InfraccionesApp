@@ -34,7 +34,7 @@ activo():boolean{
 registrar( id:string, infractor_id:string, fecha:string, hora:string, lugar:string, tipo_vehiculo:string,
 modelo_vehiculo:string, placa_vehiculo:string, color_vehiculo:string, serial_vehiculo:string, retuvo_vehiculo:string,
 id_articulo:string, retuvo_licencia:string, importe_pagar:string, ano_vehiculo:string){
-
+// para ligar  los datos de los parametros con el plugin URLSEARCHPARAMS()
     let data = new URLSearchParams();
     data.append("id" , id );
     data.append("infractor_id" , infractor_id );
@@ -53,7 +53,7 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string, ano_vehiculo:s
     data.append("ano_vehiculo" , ano_vehiculo );
 
 
-      let url = URL_SERVICIOS + "infracciones";
+      let url = URL_SERVICIOS + "infracciones";//INVOCA LA RUTA DE LA API PARA GUARDAR
 
       return this.http.post( url, data)
                   .map(resp =>{
@@ -81,16 +81,7 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string, ano_vehiculo:s
     }
 
 
-    ingresar( usuario:string, password:string){
-
-
-
-
-
-
-
-
-
+    ingresar( usuario:string, password:string){ //FUNCION PARA INGRESAR SESION
 
       let data = new URLSearchParams();
       data.append("usuario", usuario);
@@ -131,7 +122,7 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string, ano_vehiculo:s
 
     }
 
-    cerrar_sesion(){
+    cerrar_sesion(){//CERRAR SESSION
 
       this.token = null;
       this.id_usuario = null;
@@ -140,7 +131,7 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string, ano_vehiculo:s
     }
 
 
- guardar_storage(){
+ guardar_storage(){//GUARDAR EN LA MEMORIA DEL DISPOSITIVO Y NAVEGADOR
       if( this.platform.is("cordova")){
         //DISPOSITIVO
         this.storage.set('token', this.token );
@@ -158,9 +149,9 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string, ano_vehiculo:s
       }
     }
 
-    cargar_storage(){
+    cargar_storage(){//CARGAR DATOS DE LA MEMORIA DE NAVEGADRO O DISPOSITIVO
 
-      let promesa = new Promise((resolve, reject)=>{
+      let promesa = new Promise((resolve, reject)=>{ //mediante promesas (METODO DE PROGRAMACION)
 
 
         if(this.platform.is("cordova")){
