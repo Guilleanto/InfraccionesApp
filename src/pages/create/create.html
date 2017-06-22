@@ -1,0 +1,51 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Nuevainfraccion</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list class="list-home">
+<h2 text-center>Registrar Infraccion</h2>
+
+<form  #form="ngForm" novalidate>
+
+   <ion-item>
+    Nombre
+    <ion-input type="text" placeholder="Nombre" [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}"  ></ion-input>
+  </ion-item>
+<ion-item>
+    Apellido
+    <ion-input type="text" placeholder="Apellido" [(ngModel)]="apellido" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    Cedula
+    <ion-input type="number" placeholder="Cedula" [(ngModel)]="cedula" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+<ion-item>
+    tipo de vehiculo
+    <ion-input type="" placeholder="correo" [(ngModel)]="correo" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    modelo
+    <ion-input type="text" placeholder="direccion" [(ngModel)]="direccion" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+  <ion-item>
+    Año
+    <ion-input type="" placeholder="Licencia" [(ngModel)]="licencia" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+<ion-item>
+    Placa
+    <ion-input type="" placeholder="telefono" [(ngModel)]="telefono" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
+
+
+
+</form>
+<button ion-button type="submit" (click)="registrar()" large>Guardar</button>
+</ion-list>
+</ion-content>

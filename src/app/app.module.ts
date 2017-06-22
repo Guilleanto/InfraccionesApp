@@ -15,13 +15,15 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { InfraccionesPage } from '../pages/infracciones/infracciones';
 import { NuevainfraccionPage } from '../pages/nuevainfraccion/nuevainfraccion';
 import { LoginPage } from '../pages/login/login';
+import { CreatePage } from '../pages/create/create';
+
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UsuarioService } from '../providers/registrar';
 import { InfraccionesService } from '../providers/infracciones';
-
+import { CreateService } from '../providers/createService';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { InfraccionesService } from '../providers/infracciones';
     TabsPage,
     InfraccionesPage,
     NuevainfraccionPage,
-    LoginPage
+    LoginPage,
+    CreatePage
   ],
   imports: [
     BrowserModule,
@@ -50,13 +53,15 @@ import { InfraccionesService } from '../providers/infracciones';
     TabsPage,
     InfraccionesPage,
     NuevainfraccionPage,
-    LoginPage
+    LoginPage,
+    CreatePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     UsuarioService,
     InfraccionesService,
+    CreateService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 
 

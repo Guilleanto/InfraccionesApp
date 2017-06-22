@@ -72,7 +72,7 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string, ano_vehiculo:s
 
                       this.alertCtrl.create({
                         title:"registrado",
-                        subTitle: "Ifraccion Guardada",
+                        subTitle: "Infraccion Guardada",
                         buttons: ["OK"]
                       }).present();
                      // this.navCtrl.setRoot(HomePage);
@@ -85,10 +85,7 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string, ano_vehiculo:s
 
 
 
-      let loader = this.loadingCtrl.create({
-      content: "Please wait...",
-    });
-    loader.present();
+
 
 
 
@@ -120,7 +117,7 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string, ano_vehiculo:s
               console.log(this.id_usuario);
 
               this.guardar_storage();
-              loader.dismiss();
+
             }else{
               //console.log(data_resp);
               this.alertCtrl.create({
