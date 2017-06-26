@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, LoadingController } from 'ionic-angular';
 import {InfraccionesPage} from "../infracciones/infracciones";
 
 import { InfraccionesService } from '../../providers/infracciones';
@@ -20,7 +20,8 @@ export class HomePage {
   constructor(public navCtrl: NavController,
     private _ps: InfraccionesService,
      public navParams: NavParams,
-     public viewCtrl: ViewController) {
+     public viewCtrl: ViewController,
+     public loadCtrl: LoadingController ) {
 
     this.viewCtrl.dismiss();
 
@@ -28,11 +29,16 @@ export class HomePage {
     this.data.cedula = {};
   }
 
-buscar(){ //inicia busqueda por cedula y se lleva a otra vista con esa cedula
+buscar(){
+  let loader = this.loadCtrl.create({
+          content:"Cargando...",
+
+      });
+  loader.present();//inicia busqueda por cedula y se lleva a otra vista con esa cedula
   let cedula = this.data.cedula;
   console.log("Dato enviado", cedula);
   this.navCtrl.push (InfraccionesPage, { "ID":
       cedula });
-
+ loader.dismiss();
       }
 }

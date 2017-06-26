@@ -1,0 +1,130 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Infraccion {{infraccion.id}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="content">
+<ion-card>
+
+  <ion-card-header text-center>
+    Detalles
+  </ion-card-header>
+
+  <ion-card-content>
+  <ion-row >
+ <ion-col>
+    <ion-label  class="label-detail-title">Nombre</ion-label>
+      <ion-label class="label-data-detail">{{infraccion.nombre}}</ion-label>
+    </ion-col>
+    <ion-col>
+    <ion-label  class="label-detail-title">Apellido</ion-label>
+      <ion-label class="label-data-detail">{{infraccion.apellido}}</ion-label>
+    </ion-col>
+  </ion-row>
+
+  </ion-card-content>
+
+</ion-card>
+
+
+  <ion-card>
+
+  <ion-card-header text-center>
+    Infracción
+  </ion-card-header>
+
+  <ion-card-content>
+  <ion-row >
+    <ion-col>
+    <ion-label  class="label-detail-title">Fecha</ion-label>
+     <ion-label class="label-data-detail">{{infraccion.fecha}}</ion-label>
+    </ion-col>
+    <ion-col>
+    <ion-label  class="label-detail-title">Hora</ion-label>
+      <ion-label class="label-data-detail">{{infraccion.hora}}</ion-label>
+    </ion-col>
+ <ion-col>
+    <ion-label  class="label-detail-title">Lugar</ion-label>
+      <ion-label class="label-data-detail">{{infraccion.lugar}}</ion-label>
+    </ion-col>
+  </ion-row>
+
+  </ion-card-content>
+
+</ion-card>
+
+<ion-card>
+
+  <ion-card-header text-center >
+   Vehículo
+  </ion-card-header>
+
+  <ion-card-content>
+  <ion-row >
+    <ion-col>
+    <ion-label  class="label-detail-title">Tipo de vehiculo</ion-label>
+      <ion-label text-center class="label-data-detail">{{infraccion.tipo_vehiculo}}</ion-label>
+    </ion-col>
+    <ion-col>
+    <ion-label text-center class="label-detail-title">Modelo</ion-label>
+     <ion-label class="label-data-detail">{{infraccion.modelo_vehiculo}}</ion-label>
+    </ion-col>
+   <ion-col>
+    <ion-label  class="label-detail-title">año</ion-label>
+     <ion-label text-center class="label-data-detail"> {{infraccion.ano_vehiculo}}</ion-label>
+    </ion-col>
+     <ion-col>
+    <ion-label   class="label-detail-title">Placa</ion-label>
+      <ion-label text-center class="label-data-detail">{{infraccion.placa_vehiculo}}</ion-label>
+    </ion-col>
+  </ion-row>
+<ion-row >
+   <ion-col>
+    <ion-label class="label-detail-title">Color</ion-label>
+     <ion-label text-center class="label-data-detail"> {{infraccion.color_vehiculo}}</ion-label>
+    </ion-col>
+     <ion-col>
+    <ion-label class="label-detail-title">Serial</ion-label>
+     <ion-label text-center class="label-data-detail"> {{infraccion.serial_vehiculo}}</ion-label>
+    </ion-col>
+     <ion-col>
+    <ion-label class="label-detail-title">Retuvo Vehiculo</ion-label>
+     <ion-label text-center class="label-data-detail"> {{infraccion.retuvo_vehiculo}}</ion-label>
+    </ion-col>
+</ion-row>
+  </ion-card-content>
+
+</ion-card>
+
+<ion-card>
+
+  <ion-card-header text-center>
+   <h3 > Norma</h3>
+  </ion-card-header>
+  <ion-card-content>
+  <ion-row >
+    <ion-col>
+    <ion-label class="label-detail-title">Articulo</ion-label>
+     {{infraccion.id_articulo}}
+    </ion-col>
+    <ion-col>
+    <ion-label class="label-detail-title">Descripcion Articulo</ion-label>
+    {{infraccion.descripcion}}
+    </ion-col>
+  </ion-row>
+
+  </ion-card-content>
+
+</ion-card>
+<ion-card>
+
+  <ion-card-header>
+    Esta Infraccion es sancionada con MULTA
+  </ion-card-header>
+  <ion-card-content text-center >
+     {{ infraccion.importe_pagar | currency:'bsf'}}
+  </ion-card-content>
+
+</ion-card>
+</ion-content>

@@ -16,6 +16,7 @@ import { InfraccionesPage } from '../pages/infracciones/infracciones';
 import { NuevainfraccionPage } from '../pages/nuevainfraccion/nuevainfraccion';
 import { LoginPage } from '../pages/login/login';
 import { CreatePage } from '../pages/create/create';
+import { DetailPage } from '../pages/detail/detail';
 
 
 
@@ -35,7 +36,8 @@ import { CreateService } from '../providers/createService';
     InfraccionesPage,
     NuevainfraccionPage,
     LoginPage,
-    CreatePage
+    CreatePage,
+    DetailPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { CreateService } from '../providers/createService';
     InfraccionesPage,
     NuevainfraccionPage,
     LoginPage,
-    CreatePage
+    CreatePage,
+    DetailPage
   ],
   providers: [
     StatusBar,

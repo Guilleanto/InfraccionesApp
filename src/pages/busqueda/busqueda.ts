@@ -16,11 +16,5 @@ export class BusquedaPage {
     public navParams: NavParams) {
   }
 
-buscar_productos( ev:any ){
 
-  let valor = ev.target.value;
-  console.log(valor);
-
-  this._ps.buscar_infraccion( valor );
-}
 }

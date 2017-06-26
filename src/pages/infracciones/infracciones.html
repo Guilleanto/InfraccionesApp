@@ -8,123 +8,29 @@
 <ion-card>
 
   <ion-card-header text-center>
-    Datos
+   Infracciones Registradas
   </ion-card-header>
+</ion-card>
 
-  <ion-card-content>
-  <ion-row *ngFor=" let item of infraccion">
- <ion-col>
-    <ion-label  class="label-detail-title">Nombre</ion-label>
-      <ion-label class="label-data-detail">{{item.nombre}}</ion-label>
-    </ion-col>
-    <ion-col>
-    <ion-label  class="label-detail-title">Apellido</ion-label>
-      <ion-label class="label-data-detail">{{item.apellido}}</ion-label>
-    </ion-col>
-  </ion-row>
+<ion-card *ngFor='let item of infraccion'>
+    <img src="/{{item.vehiculo_foto}}">
+       <ion-card-content  [navParams]="{ detail: item}"  [navPush]="DetailPage">
+            <p>
+            {{item.id}}
+            </p><br>
 
-  </ion-card-content>
+            <p>{{item.fecha}}</p><br>
+            <p>{{item.nombre}} {{item.apellido}}</p><br>
+            <p> {{item.cedula}}</p>
+     <p> {{item.lugar}}</p>
+     <p> {{item.telefono}}</p>
+     <button ion-button round color="default" (click)="detail(item)">Detalles</button>
+    </ion-card-content>
 
 </ion-card>
 
+<ion-infinite-scroll (ionInfinite)="siguiente($event)">
+   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+ </ion-infinite-scroll>
 
-  <ion-card>
-
-  <ion-card-header text-center>
-    Infracción
-  </ion-card-header>
-
-  <ion-card-content>
-  <ion-row *ngFor=" let item of infraccion">
-    <ion-col>
-    <ion-label  class="label-detail-title">Fecha</ion-label>
-     <ion-label class="label-data-detail">{{item.fecha}}</ion-label>
-    </ion-col>
-    <ion-col>
-    <ion-label  class="label-detail-title">Hora</ion-label>
-      <ion-label class="label-data-detail">{{item.hora}}</ion-label>
-    </ion-col>
- <ion-col>
-    <ion-label  class="label-detail-title">Lugar</ion-label>
-      <ion-label class="label-data-detail">{{item.lugar}}</ion-label>
-    </ion-col>
-  </ion-row>
-
-  </ion-card-content>
-
-</ion-card>
-
-<ion-card>
-
-  <ion-card-header text-center >
-   Vehículo
-  </ion-card-header>
-
-  <ion-card-content>
-  <ion-row *ngFor=" let item of infraccion">
-    <ion-col>
-    <ion-label  class="label-detail-title">Tipo de vehiculo</ion-label>
-      {{item.tipo_vehiculo}}
-    </ion-col>
-    <ion-col>
-    <ion-label text-center class="label-detail-title">Modelo</ion-label>
-     {{item.modelo_vehiculo}}
-    </ion-col>
-   <ion-col>
-    <ion-label  class="label-detail-title">año</ion-label>
-     {{item.ano_vehiculo}}
-    </ion-col>
-     <ion-col>
-    <ion-label   class="label-detail-title">Placa</ion-label>
-     {{item.placa_vehiculo}}
-    </ion-col>
-  </ion-row>
-<ion-row *ngFor=" let item of infraccion">
-   <ion-col>
-    <ion-label class="label-detail-title">Color</ion-label>
-     {{item.color_vehiculo}}
-    </ion-col>
-     <ion-col>
-    <ion-label class="label-detail-title">Serial</ion-label>
-     {{item.serial_vehiculo}}
-    </ion-col>
-     <ion-col>
-    <ion-label class="label-detail-title">Retuvo Vehiculo</ion-label>
-     {{item.retuvo_vehiculo}}
-    </ion-col>
-</ion-row>
-  </ion-card-content>
-
-</ion-card>
-
-<ion-card>
-
-  <ion-card-header text-center>
-   <h3 > Norma</h3>
-  </ion-card-header>
-  <ion-card-content>
-  <ion-row *ngFor=" let item of infraccion">
-    <ion-col>
-    <ion-label class="label-detail-title">Articulo</ion-label>
-     {{item.id_articulo}}
-    </ion-col>
-    <ion-col>
-    <ion-label class="label-detail-title">Retuvo Licencia</ion-label>
-    {{item.retuvo_licencia}}
-    </ion-col>
-  </ion-row>
-
-  </ion-card-content>
-
-</ion-card>
-<ion-card>
-
-  <ion-card-header>
-    Esta Infraccion es sancionada con MULTA
-  </ion-card-header>
-  <ion-card-content text-center *ngFor=" let item of infraccion">
-     {{ item.importe_pagar | currency:'bsf'}}
-  </ion-card-content>
-
-</ion-card>
 </ion-content>

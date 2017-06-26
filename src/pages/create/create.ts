@@ -17,6 +17,7 @@ import { CreateService } from "../../providers/createService";
 export class CreatePage {
 
 id:string="";
+user_id:string="";
 nombre:string="";
 apellido:string="";
 cedula:string="";
@@ -24,8 +25,8 @@ correo:string="";
 direccion:string="";
 licencia:string="";
 telefono:string="";
-user_id:string="";
-id_u:string="";
+
+
 
   constructor(private storage:Storage, public navCtrl: NavController,
    public navParams: NavParams, private _cs: CreateService) {
@@ -35,8 +36,8 @@ id_u:string="";
 
 registrar(){
 
-  this.id_u = localStorage.getItem("id_usuario");
-  this.user_id =  this.id_u;
+
+  this.user_id = localStorage.getItem("id_usuario");
   this._cs.registrar(this.id, this.user_id, this.nombre, this.apellido, this.cedula, this.correo, this.direccion, this.licencia, this.telefono)
   .subscribe(()=>{
 

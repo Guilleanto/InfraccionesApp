@@ -13,6 +13,7 @@ import {HomePage} from "../pages/home/home";
 @Injectable()
 export class CreateService {
 
+id_usuario:any;
 
   constructor(public http: Http, private alertCtrl: AlertController,
     private platform: Platform, private storage:Storage, public loadingCtrl: LoadingController) {

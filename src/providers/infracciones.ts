@@ -8,6 +8,7 @@ import { URL_SERVICIOS } from '../config/url.services';
 @Injectable()
 export class InfraccionesService {
 
+pagina:number = 0;
 infraccion:any []= [];
 resultado:any []= [];
 
@@ -15,12 +16,10 @@ resultado:any []= [];
 
     //solo se cargara una vez
   }
-  ionViewDidEnter(){
-
-  }
 
 
-    buscar_infraccion(cedula:any ) {
+
+  /*  buscar_infraccion(cedula:any ) {
          let url = URL_SERVICIOS + "infractorapi/" + cedula;
 
          this.http.get( url )
@@ -30,7 +29,7 @@ resultado:any []= [];
                  console.log(this.resultado)
 
                });
-       }
+       }*/
 
   }
 

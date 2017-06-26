@@ -5,6 +5,8 @@ import 'rxjs/add/operator/map';
 import { URL_SERVICIOS } from '../config/url.services';
 import { AlertController, Platform } from "ionic-angular";
 import { LoadingController } from 'ionic-angular';
+import {InfraccionesPage} from "../pages/infracciones/infracciones";
+
 
 import { Storage } from "@ionic/storage";
 
@@ -16,10 +18,12 @@ export class UsuarioService {
 
 token:string;
 id_usuario:string;
+cedula:any;
 
 
   constructor(public http: Http, private  alertCtrl: AlertController,
-  private platform:Platform, private storage:Storage, public loadingCtrl: LoadingController  ) {
+  private platform:Platform, private storage:Storage, public loadingCtrl: LoadingController,
+  ) {
 this.cargar_storage();
   }
 
@@ -75,7 +79,11 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string, ano_vehiculo:s
                         subTitle: "Infraccion Guardada",
                         buttons: ["OK"]
                       }).present();
-                     // this.navCtrl.setRoot(HomePage);
+
+
+
+
+
                     }
                   })
     }
@@ -106,6 +114,8 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string, ano_vehiculo:s
               this.token = data_resp.token;
               this.id_usuario = data_resp.id_usuario;
               console.log(this.id_usuario);
+
+
 
               this.guardar_storage();
 
@@ -189,4 +199,16 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string, ano_vehiculo:s
       });
       return promesa;
     }
+
+    /*perfil(){
+      let url = URL_SERVICIOS + "infractorapi/" + this.data;//ES LA URL DE LA API
+//CONSUMIMOS EL SERVICIO DE LA API
+     this.http.get( url )
+         .map( resp => resp.json() )
+         .subscribe( (data_resp) =>{
+           console.log(data_resp);
+           this.mydata = data_resp;
+           console.log("mydata: ", this.mydata);
+            console.log("nombre: ", this.mydata.infractor.nombre);
+    }*/
 }

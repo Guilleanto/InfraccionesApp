@@ -52,22 +52,29 @@
   </ion-item>
   <ion-item>
     Retuvo Vehiculo
-    <ion-input type="" placeholder="Retuvo Vehiculo" [(ngModel)]="retuvo_vehiculo" [ngModelOptions]="{standalone: true}"></ion-input>
+    <ion-select  [(ngModel)]="retuvo_vehiculo" [ngModelOptions]="{standalone: true}">
+ <ion-option value="Si">Si</ion-option>
+    <ion-option value="No">No</ion-option></ion-select>
   </ion-item>
   <ion-item>
-    articulo
+    Articulo
     <ion-input type="" placeholder="Articulo" [(ngModel)]="id_articulo" [ngModelOptions]="{standalone: true}"></ion-input>
   </ion-item>
   <ion-item>
     retuvo licencia
-    <ion-input type="" placeholder="Retuvo Licencia" [(ngModel)]="retuvo_licencia" [ngModelOptions]="{standalone: true}"></ion-input>
-  </ion-item><ion-item>
+    <ion-select  [(ngModel)]="retuvo_licencia" [ngModelOptions]="{standalone: true}">
+    <ion-option value="Si">Si</ion-option>
+    <ion-option value="No">No</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
     importe a pagar
     <ion-input type="number" placeholder="Importe a Pagar" [(ngModel)]="importe_pagar" [ngModelOptions]="{standalone: true}"></ion-input>
   </ion-item>
 
 
 </form>
-<button ion-button type="submit" (click)="registrar()" large>Guardar</button>
+<button ion-button type="submit" (click)="registrar()"  large>Guardar</button>
 </ion-list>
 </ion-content>
