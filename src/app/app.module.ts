@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
-
-
 import   { HttpModule } from '@angular/http';
 import { Storage } from "@ionic/storage";
 
@@ -17,6 +15,10 @@ import { NuevainfraccionPage } from '../pages/nuevainfraccion/nuevainfraccion';
 import { LoginPage } from '../pages/login/login';
 import { CreatePage } from '../pages/create/create';
 import { DetailPage } from '../pages/detail/detail';
+import {BuscarPage} from '../pages/buscar/buscar';
+import {BusquedaPage} from '../pages/busqueda/busqueda';
+
+import { ImagePicker } from '@ionic-native/image-picker';
 
 
 
@@ -37,14 +39,15 @@ import { CreateService } from '../providers/createService';
     NuevainfraccionPage,
     LoginPage,
     CreatePage,
-    DetailPage
+    DetailPage,
+    BusquedaPage,
+    BuscarPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
-
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -57,17 +60,18 @@ import { CreateService } from '../providers/createService';
     NuevainfraccionPage,
     LoginPage,
     CreatePage,
-    DetailPage
+    DetailPage,
+    BusquedaPage,
+    BuscarPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    ImagePicker,
     UsuarioService,
     InfraccionesService,
     CreateService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-
-
   ]
 })
 export class AppModule {}

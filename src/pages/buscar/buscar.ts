@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import {  NavController, NavParams, ViewController } from 'ionic-angular';
 import {InfraccionesPage} from "../infracciones/infracciones";
 
 import { InfraccionesService } from '../../providers/infracciones';
@@ -10,7 +10,7 @@ import { InfraccionesService } from '../../providers/infracciones';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
+
 @Component({
   selector: 'page-buscar',
   templateUrl: 'buscar.html',

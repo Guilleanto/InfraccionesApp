@@ -4,6 +4,9 @@ import {InfraccionesPage} from "../infracciones/infracciones";
 
 import { InfraccionesService } from '../../providers/infracciones';
 import { NuevainfraccionPage } from "../nuevainfraccion/nuevainfraccion";
+import { UsuarioService } from "../../providers/registrar";
+
+import {LoginPage} from "../login/login";
 
 
 @Component({
@@ -19,6 +22,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
     private _ps: InfraccionesService,
+    private _us:UsuarioService,
      public navParams: NavParams,
      public viewCtrl: ViewController,
      public loadCtrl: LoadingController ) {
@@ -41,4 +45,11 @@ buscar(){
       cedula });
  loader.dismiss();
       }
+
+
+      cerrar(){
+    this._us.cerrar_sesion();
+        this.navCtrl.setRoot(LoginPage);
+    }
+
 }

@@ -13,7 +13,7 @@
 </ion-card>
 
 <ion-card *ngFor='let item of infraccion'>
-    <img src="/{{item.vehiculo_foto}}">
+    <img src="assets/img/{{item.vehiculo_foto}}">
        <ion-card-content  [navParams]="{ detail: item}"  [navPush]="DetailPage">
             <p>
             {{item.id}}
@@ -29,8 +29,6 @@
 
 </ion-card>
 
-<ion-infinite-scroll (ionInfinite)="siguiente($event)">
-   <ion-infinite-scroll-content></ion-infinite-scroll-content>
- </ion-infinite-scroll>
+
 
 </ion-content>

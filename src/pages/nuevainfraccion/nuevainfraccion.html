@@ -1,13 +1,8 @@
-
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Nuevainfraccion</ion-title>
+    <ion-title>Nueva infraccion</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content padding>
   <ion-list class="list-home">
 <h2 text-center>Registrar Infraccion</h2>
@@ -23,16 +18,23 @@
     <ion-input type="" placeholder="hora" [(ngModel)]="hora" [ngModelOptions]="{standalone: true}"></ion-input>
   </ion-item>
   <ion-item>
-    lugar
-    <ion-input type="" placeholder="lugar" [(ngModel)]="lugar" [ngModelOptions]="{standalone: true}"></ion-input>
+    <ion-label>Lugar</ion-label>
+    <ion-select Placeholder="Seleccione" [(ngModel)]="lugar" [ngModelOptions]="{standalone: true}">
+    <ion-option value="Municipio- Roscio, San Juan" >Municipio- Roscio, San Juan</ion-option>Lugar</ion-select>
   </ion-item>
 <ion-item>
-    tipo de vehiculo
-    <ion-input type="number" placeholder="tipo de vehiculo " [(ngModel)]="tipo_vehiculo" [ngModelOptions]="{standalone: true}"></ion-input>
+ <ion-label>Tipo De Vehiculo</ion-label>
+     <ion-select  Placeholder="Seleccione" [(ngModel)]="tipo_vehiculo" [ngModelOptions]="{standalone: true}">
+    <ion-option value="1">Automatico</ion-option>
+    <ion-option value="2">Sincrónico</ion-option> Tipo de vehiculo</ion-select>
   </ion-item>
   <ion-item>
-    modelo
-    <ion-input type="" placeholder="Modelo de Vehiculo" [(ngModel)]="modelo_vehiculo" [ngModelOptions]="{standalone: true}"></ion-input>
+    <ion-label>Modelo De Vehiculo</ion-label>
+    <ion-select Placeholder="Seleccione" [(ngModel)]="modelo_vehiculo" [ngModelOptions]="{standalone: true}">
+    <ion-option value="Carro Pequeño">Carro Pequeño</ion-option>
+    <ion-option value="Carro Grande">Carro Grande</ion-option>
+    <ion-option value="Buseta">Buseta</ion-option>
+    <ion-option value="Moto">Moto</ion-option>Modelo del Vehiculo</ion-select>
   </ion-item>
   <ion-item>
     Año
@@ -51,8 +53,8 @@
     <ion-input type="number" placeholder="Serial" [(ngModel)]="serial_vehiculo" [ngModelOptions]="{standalone: true}"></ion-input>
   </ion-item>
   <ion-item>
-    Retuvo Vehiculo
-    <ion-select  [(ngModel)]="retuvo_vehiculo" [ngModelOptions]="{standalone: true}">
+    <ion-label>¿Retuvo Vehiculo?</ion-label>
+    <ion-select Placeholder="Seleccione"  [(ngModel)]="retuvo_vehiculo" [ngModelOptions]="{standalone: true}">
  <ion-option value="Si">Si</ion-option>
     <ion-option value="No">No</ion-option></ion-select>
   </ion-item>
@@ -61,20 +63,19 @@
     <ion-input type="" placeholder="Articulo" [(ngModel)]="id_articulo" [ngModelOptions]="{standalone: true}"></ion-input>
   </ion-item>
   <ion-item>
-    retuvo licencia
+    <ion-label>Retuvo Licencia?</ion-label>
     <ion-select  [(ngModel)]="retuvo_licencia" [ngModelOptions]="{standalone: true}">
     <ion-option value="Si">Si</ion-option>
     <ion-option value="No">No</ion-option>
     </ion-select>
   </ion-item>
-
   <ion-item>
-    importe a pagar
+    Importe a pagar
     <ion-input type="number" placeholder="Importe a Pagar" [(ngModel)]="importe_pagar" [ngModelOptions]="{standalone: true}"></ion-input>
   </ion-item>
-
-
 </form>
 <button ion-button type="submit" (click)="registrar()"  large>Guardar</button>
+<button ion-button  (click)="Seleccionar()"  large>Subir Foto</button>
+
 </ion-list>
 </ion-content>

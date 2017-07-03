@@ -1,35 +1,29 @@
-<ion-header>
-
-  <ion-navbar>
-    <ion-title text-center>Login</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
 
 <ion-content padding>
-<h2 text-center style="color: white;">Policia Nacional Bolivariana</h2>
-<h2 text-center style="color: white;">Infracción App</h2>
+<h2 text-center style="font-family: junction-bold; color: white;">Policia Nacional Bolivariana</h2>
+<h2 text-center style="font-family: junction-bold; color: white;">Infracción App</h2>
 <ion-card>
-  <img src="assets/img/portada.png">
+  <img style=" background-color: transparent !important; " src="assets/img/logo2.png">
 </ion-card>
-<ion-list>
+
+
+<ion-list >
 
   <ion-item>
-    <ion-label fixed>Usuario</ion-label>
-    <ion-input type="text" [(ngModel)]="usuario"></ion-input>
-  </ion-item>
 
+        <img item-right style="width: 10%;" src="assets/img/user.png"/>
+    <ion-input type="text" style="font-family: junction-bold; " placeholder="Usuario"  [(ngModel)]="usuario" required></ion-input>
+  </ion-item>
   <ion-item>
-    <ion-label fixed>Contraseña</ion-label>
-    <ion-input type="password" [(ngModel)]="password"></ion-input>
+        <img  item-right  style="width: 10%;" src="assets/img/key.png"/>
+    <ion-input type="password" style="font-family: junction-bold; " placeholder="Contraseña" name="password" [(ngModel)]="password" required></ion-input>
   </ion-item>
 
-<button ion-button block
+<button ion-button block class="login-button"
 [disabled]=" usuario.length < 2 || password.length < 5 "
 (click)="ingresar()"
 >Ingresar</button>
 
-</ion-list>
+    </ion-list>
 
 </ion-content>

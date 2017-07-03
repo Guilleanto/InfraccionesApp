@@ -9,7 +9,7 @@ import { CreateService } from "../../providers/createService";
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
-@IonicPage()
+
 @Component({
   selector: 'page-create',
   templateUrl: 'create.html',
@@ -21,10 +21,11 @@ user_id:string="";
 nombre:string="";
 apellido:string="";
 cedula:string="";
-correo:string="";
 direccion:string="";
-licencia:string="";
+correo:string="";
 telefono:string="";
+licencia:string="";
+
 
 
 
@@ -38,8 +39,8 @@ registrar(){
 
 
   this.user_id = localStorage.getItem("id_usuario");
-  this._cs.registrar(this.id, this.user_id, this.nombre, this.apellido, this.cedula, this.correo, this.direccion, this.licencia, this.telefono)
-  .subscribe(()=>{
+  this._cs.registrar(this.id, this.user_id, this.nombre, this.apellido,
+   this.cedula,  this.direccion, this.correo, this.telefono, this.licencia).subscribe( ()=>{
 
   })
 }

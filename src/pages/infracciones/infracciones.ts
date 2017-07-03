@@ -53,12 +53,12 @@ private mydata: any;
            console.log(data_resp);
            this.mydata = data_resp;
            console.log("mydata: ", this.mydata);
-            console.log("nombre: ", this.mydata.infractor.nombre);
+            console.log("nombre: ", this.mydata.infractor.id);
 
             this.storage.set('cedula', this.mydata.infractor.cedula );
-
+            this.storage.set('infractor_id', this.mydata.infractor.id );
             localStorage.setItem("cedula", this.mydata.infractor.cedula);
-
+            localStorage.setItem("infractor_id", this.mydata.infractor.id);
 
            if(this.mydata.status_code == "500"){//SI HAY ERROR
                      let alert = this.alertCtrl.create({
@@ -94,7 +94,7 @@ private mydata: any;
                  alert.present()
              }else{
                   console.log(this.mydata);//SI TIENE INFRACCION SE CARGA EL DATO EN UN ARRAY PARA MOSTRAR
-                  console.log(this.mydata.infractor.nombre)
+                  console.log(this.mydata.infractor.id)
                   console.log(this.mydata.infraccion);
                     this.infraccion = this.mydata.infraccion;
                     console.log(this.infraccion);

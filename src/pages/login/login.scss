@@ -1,6 +1,18 @@
 page-login {
+ion-item{
+      background-color: transparent;
+      color: white;
+    }
 
-.content{
-  background-color: grey;
-  }
+
+  .login-button {
+          width: 90%;
+          height: 50px;
+              font-size: 1.2em;
+          border: 2px solid #fff;
+          //background-color: transparent;
+          margin-left: 5%;
+          margin-bottom: 3%;
+          font-family: junction-bold;
+      }
 }

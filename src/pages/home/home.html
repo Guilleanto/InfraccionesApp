@@ -1,6 +1,7 @@
 <ion-header>
   <ion-navbar>
-    <ion-title text-center>Policía Nacional Bolivariana</ion-title>
+  <a  (click)="cerrar()">cerrar sesion</a>
+  <ion-title text-center style="font-family: junction-bold; color: black;">Bienvenido</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -10,15 +11,14 @@
   <img src="assets/img/logopagina.png">
 
 </ion-card>
+<ion-card>
+  <img src="assets/img/portada.png">
 
-
-<!--<button class="nueva-infraccion" (click)="nueva()" ion-button secondary  block>Nueva Infracción </button>-->
+</ion-card>
 
 <ion-list class="list-home">
-<h2 text-center>Bienvenido</h2><br>
-
-<h3 text-center>Buscar Infractor</h3>
-   <ion-item>
+<h3 text-center style="font-family: junction-bold; color: white; ">Buscar Infractor</h3>
+   <ion-item >
     <ion-input type="number" placeholder="Ingrese Cedula de indentidad del infractor" [(ngModel)]="data.cedula"></ion-input>
   </ion-item>
 

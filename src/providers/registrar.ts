@@ -36,8 +36,8 @@ activo():boolean{
   }
 }
 registrar( id:string, infractor_id:string, fecha:string, hora:string, lugar:string, tipo_vehiculo:string,
-modelo_vehiculo:string, placa_vehiculo:string, color_vehiculo:string, serial_vehiculo:string, retuvo_vehiculo:string,
-id_articulo:string, retuvo_licencia:string, importe_pagar:string, ano_vehiculo:string){
+modelo_vehiculo:string,ano_vehiculo:string, placa_vehiculo:string, color_vehiculo:string, serial_vehiculo:string, retuvo_vehiculo:string,
+id_articulo:string, retuvo_licencia:string, importe_pagar:string){
 // para ligar  los datos de los parametros con el plugin URLSEARCHPARAMS()
     let data = new URLSearchParams();
     data.append("id" , id );
@@ -47,6 +47,7 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string, ano_vehiculo:s
     data.append("lugar" , lugar);
     data.append("tipo_vehiculo" , tipo_vehiculo );
     data.append("modelo_vehiculo" , modelo_vehiculo );
+    data.append("ano_vehiculo" , ano_vehiculo );
     data.append("placa_vehiculo" , placa_vehiculo );
     data.append("color_vehiculo" , color_vehiculo );
     data.append("serial_vehiculo" , serial_vehiculo );
@@ -54,13 +55,12 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string, ano_vehiculo:s
     data.append("id_articulo" , id_articulo );
     data.append("retuvo_licencia" , retuvo_licencia );
     data.append("importe_pagar" , importe_pagar );
-    data.append("ano_vehiculo" , ano_vehiculo );
+
 
 
       let url = URL_SERVICIOS + "infracciones";//INVOCA LA RUTA DE LA API PARA GUARDAR
 
-      return this.http.post( url, data)
-                  .map(resp =>{
+      return this.http.post( url, data).map(resp =>{
 
                     let data_resp = resp.json();
                     console.log (data_resp);
@@ -133,11 +133,9 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string, ano_vehiculo:s
     }
 
     cerrar_sesion(){//CERRAR SESSION
+      localStorage.clear();
+      this.storage.clear();
 
-      this.token = null;
-      this.id_usuario = null;
-
-      this.guardar_storage();
     }
 
 
