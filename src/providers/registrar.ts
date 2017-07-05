@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Http, URLSearchParams } from '@angular/http';
+import { Http, URLSearchParams, Request, RequestMethod, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { URL_SERVICIOS } from '../config/url.services';
 import { AlertController, Platform } from "ionic-angular";
 import { LoadingController } from 'ionic-angular';
 import {InfraccionesPage} from "../pages/infracciones/infracciones";
-
-
 import { Storage } from "@ionic/storage";
-
-
 import {HomePage} from "../pages/home/home";
 
 @Injectable()
@@ -19,16 +15,22 @@ export class UsuarioService {
 token:string;
 id_usuario:string;
 cedula:any;
-
+mailgunUrl: string;
+mailgunApiKey: string;
+requestHeaders = new Headers();
 
   constructor(public http: Http, private  alertCtrl: AlertController,
   private platform:Platform, private storage:Storage, public loadingCtrl: LoadingController,
   ) {
+     this.mailgunUrl = "mail.basebapp.com";
+    this.mailgunApiKey = window.btoa("api:key-3cc4e50a46b5410431a2e61855b27443");
+
+    this.requestHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    this.requestHeaders.append("Authorization", "Basic " + this.mailgunApiKey);
 this.cargar_storage();
   }
 
 activo():boolean{
-
   if(this.token){
     return true;
   }else{
@@ -64,7 +66,6 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string){
 
                     let data_resp = resp.json();
                     console.log (data_resp);
-
                     if(data_resp.error){
                           this.alertCtrl.create({
                             title: "error al registrar",
@@ -73,17 +74,11 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string){
                           }).present();
                         console.log("ERROR");
                     }else{
-
                       this.alertCtrl.create({
                         title:"registrado",
                         subTitle: "Infraccion Guardada",
                         buttons: ["OK"]
                       }).present();
-
-
-
-
-
                     }
                   })
     }
@@ -197,7 +192,41 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string){
       });
       return promesa;
     }
+EnviarEmail(recipient: string, subject: string, message: string){
+   let loader = this.loadingCtrl.create({
+      content:'Enviando infracción..'
+    });
+    loader.present();
+            this.http.request(new Request({
+            method: RequestMethod.Post, //test@example.com
+            url: "https://api.mailgun.net/v3/" + this.mailgunUrl + "/messages",
+            body: "from=medicalmasterapp@gmail.com&to=" + recipient + "&subject=" + subject + "&text= Su contraseña es. "+ message+`&html= <!doctype html>
+`,
+     headers: this.requestHeaders
+        }))
+        .subscribe(success => {
+            console.log("SUCCESS -> " + JSON.stringify(success));
+              let alert = this.alertCtrl.create({
+              title: 'Enviò Exitoso',
+              subTitle: 'Infraccion enviada correctamente',
+              buttons: ['ok']
+              });
+          alert.present();
+          setTimeout(()=>{
+      loader.dismiss();
+    },2000)
 
+        }, error => {
+          loader.dismiss();
+            console.log("ERROR -> " + JSON.stringify(error));
+            let alert = this.alertCtrl.create({
+              title: 'ERROR',
+              subTitle: 'Ha ocurrido un error al intentar Enviar Infraccion, Porfavor intente nuevamente o verifique conexion.',
+              buttons: ['ok']
+              });
+          alert.present();
+        });
+  }
     /*perfil(){
       let url = URL_SERVICIOS + "infractorapi/" + this.data;//ES LA URL DE LA API
 //CONSUMIMOS EL SERVICIO DE LA API

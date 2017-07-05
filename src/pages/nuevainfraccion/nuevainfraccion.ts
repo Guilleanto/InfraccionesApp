@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, Platform } from 'ionic-angular';
 import {HomePage} from "../home/home";
 import {InfraccionesPage} from "../infracciones/infracciones";
+import { Http } from '@angular/http';
 import { UsuarioService } from "../../providers/registrar"
 import { Storage } from "@ionic/storage";
+import { URL_SERVICIOS } from '../../config/url.services';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 
 @Component({
@@ -19,7 +21,8 @@ img:string = null;
 
 id:string="";
 infractor_id:any;//PILAS CON ESTO SE DEBE CAMBIAR AL ID DEL INSFRACCTOR
-fecha:string="";
+//fecha:string="";
+fecha: string = new Date().toISOString();
 hora:string="";
 lugar:string="";
 tipo_vehiculo:string="";
@@ -32,11 +35,16 @@ retuvo_vehiculo:string="";
 id_articulo:string="";
 retuvo_licencia:string="";
 importe_pagar:string="";
-
 cedula:any;
+private arti: any;
+private ar:any;
+
+//articulos:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private _us:UsuarioService,private storage: Storage, private platform: Platform, private image:ImagePicker, private toastCtrol: ToastController) {
+              private _us:UsuarioService, public http: Http, private storage: Storage, private platform: Platform, private image:ImagePicker, private toastCtrol: ToastController) {
+this.cargar_articulos();
+console.log(this.fecha);
 
 
   }
@@ -50,10 +58,42 @@ cedula:any;
         this.modelo_vehiculo, this.ano_vehiculo, this.placa_vehiculo, this.color_vehiculo, this.serial_vehiculo,
         this.retuvo_vehiculo, this.id_articulo, this.retuvo_licencia, this.importe_pagar).subscribe( ()=>{
       })
+       this.navCtrl.setRoot(InfraccionesPage);
 
 
   }
+updateSelectedValue(event: any){
+    this.id_articulo = JSON.parse(event);
+    console.log(this.id_articulo);
 
+    let url = URL_SERVICIOS + 'articulos/' + this.id_articulo;
+    this.http.get( url )
+         .map( resp => resp.json() )
+         .subscribe( (data_resp) =>{
+           console.log(data_resp);
+           this.ar = data_resp;
+           console.log(this.ar.descripcion);
+           //this.articulos = this.mydata.infraccion;
+         },error =>{
+           console.log('ERROR');
+
+         });
+  }
+
+cargar_articulos(){
+    let url = URL_SERVICIOS + 'articulos';
+      this.http.get( url )
+         .map( resp => resp.json() )
+         .subscribe( (data_resp) =>{
+           console.log(data_resp);
+           this.arti = data_resp;
+           console.log(this.arti);
+           //this.articulos = this.mydata.infraccion;
+         },error =>{
+           console.log('ERROR');
+
+         });
+}
   private mostrar_toast(texto:string){
     this.toastCtrol.create({
       message: texto,

@@ -5,17 +5,17 @@
 </ion-header>
 <ion-content padding>
   <ion-list class="list-home">
-<h2 text-center>Registrar Infraccion</h2>
+<h2 text-center style="color: white; font-family: junction-bold;">Registrar Infraccion</h2>
 
 <form  #form="ngForm" novalidate>
 
    <ion-item>
     Fecha
-    <ion-input type="" placeholder="Fecha" [(ngModel)]="fecha" [ngModelOptions]="{standalone: true}"  ></ion-input>
+    <ion-datetime pickerFormat="MMM DD" displayFormat="MMM DD" [(ngModel)]="fecha" [ngModelOptions]="{standalone: true}"  ></ion-datetime>
   </ion-item>
 <ion-item>
     Hora
-    <ion-input type="" placeholder="hora" [(ngModel)]="hora" [ngModelOptions]="{standalone: true}"></ion-input>
+     <ion-datetime pickerFormat="h mm A" displayFormat="h:mm A" [(ngModel)]="hora" [ngModelOptions]="{standalone: true}"  ></ion-datetime>
   </ion-item>
   <ion-item>
     <ion-label>Lugar</ion-label>
@@ -59,20 +59,31 @@
     <ion-option value="No">No</ion-option></ion-select>
   </ion-item>
   <ion-item>
-    Articulo
-    <ion-input type="" placeholder="Articulo" [(ngModel)]="id_articulo" [ngModelOptions]="{standalone: true}"></ion-input>
-  </ion-item>
-  <ion-item>
     <ion-label>Retuvo Licencia?</ion-label>
     <ion-select  [(ngModel)]="retuvo_licencia" [ngModelOptions]="{standalone: true}">
     <ion-option value="Si">Si</ion-option>
     <ion-option value="No">No</ion-option>
     </ion-select>
   </ion-item>
-  <ion-item>
-    Importe a pagar
-    <ion-input type="number" placeholder="Importe a Pagar" [(ngModel)]="importe_pagar" [ngModelOptions]="{standalone: true}"></ion-input>
+
+<ion-item>
+    <ion-label> Articulo</ion-label>
+    <ion-select   [(ngModel)]="id_articulo" (ngModelChange)="updateSelectedValue($event)" [ngModelOptions]="{standalone: true}"  >
+    <ion-option *ngFor=" let ar of arti" [value]=ar.id >{{ar.articulo}} </ion-option></ion-select>
+     <ion-label> {{id_articulo}}</ion-label>
   </ion-item>
+<ion-item>
+  <ion-label *ngIf="ar == null">Descripción del articulo</ion-label>
+    <ion-label *ngIf="ar != null">{{ar.descripcion}}</ion-label>
+</ion-item>
+
+  <ion-item>
+  <ion-input type="text" placeholder="Importe a Pagar" [(ngModel)]="importe_pagar" [ngModelOptions]="{standalone: true}" *ngIf="ar == null"></ion-input>
+    <ion-input type="" value="10" [(ngModel)]="importe_pagar" [ngModelOptions]="{standalone: true}" *ngIf=" ar != null && ar.id == 1"></ion-input>
+
+  </ion-item>
+
+
 </form>
 <button ion-button type="submit" (click)="registrar()"  large>Guardar</button>
 <button ion-button  (click)="Seleccionar()"  large>Subir Foto</button>
