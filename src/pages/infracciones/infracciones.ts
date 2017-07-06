@@ -54,7 +54,7 @@ ionViewWillEnter(){
           content:"Buscando...",
       });
     loader.present();
-     let url = URL_SERVICIOS + "infractorapi/" + this.cedula;//ES LA URL DE LA API
+     let url = URL_SERVICIOS + "infractorapi/" + this.data;//ES LA URL DE LA API
 //CONSUMIMOS EL SERVICIO DE LA API
      this.http.get( url )
          .map( resp => resp.json() )
