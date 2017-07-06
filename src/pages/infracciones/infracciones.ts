@@ -50,6 +50,7 @@ ionViewWillEnter(){
   cargartodos( ){
     this.cedula =  localStorage.getItem("cedula_infractor");
     this.cedula = this.storage.get("cedula_infractor");
+    console.log("Buscando cedula:", this.cedula);
     let loader = this.loadCtrl.create({
           content:"Buscando...",
       });
