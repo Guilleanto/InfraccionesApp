@@ -32,7 +32,7 @@ export class HomePage {
 buscar(){
   //inicia busqueda por cedula y se lleva a otra vista con esa cedula
   let cedula = this.data.cedula;
-  //this.storage.set('cedula_infractor', cedula);
+  this.storage.set('cedula_infractor', cedula);
   console.log("Dato enviado", cedula);
   this.navCtrl.push (InfraccionesPage, { "ID":
       cedula });
