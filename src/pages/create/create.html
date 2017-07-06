@@ -39,8 +39,17 @@
     <ion-input type="" placeholder="telefono" [(ngModel)]="telefono" [ngModelOptions]="{standalone: true}"></ion-input>
   </ion-item>
 <ion-item>
-    Placa
-    <ion-input type="" placeholder="licencia" [(ngModel)]="licencia" [ngModelOptions]="{standalone: true}"></ion-input>
+    Licencia
+    <ion-select type="" placeholder="licencia" [(ngModel)]="licencia" [ngModelOptions]="{standalone: true}" multiple="true" okText="Elegir" cancelText="Cancelar">
+      <ion-option value="1"></ion-option>
+    <ion-option value="2"></ion-option>
+    <ion-option value="3"></ion-option>
+    <ion-option value="4"></ion-option>
+    <ion-option value="5"></ion-option>
+    <ion-option value="E"></ion-option>
+    <ion-option value="T"></ion-option>
+<ion-option value="I"></ion-option>
+    </ion-select>
   </ion-item>
 
 

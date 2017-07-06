@@ -39,7 +39,7 @@ private mydata: any;
 
     console.log("dato recibido:", navParams);
     this.data = this.navParams.get('ID');
-    this.cargartodos();
+
    /* this.data  = this.navParams.get("ID")
     console.log(this.data);*/
   }

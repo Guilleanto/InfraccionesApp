@@ -74,10 +74,6 @@
     <ion-label  class="label-detail-title">año</ion-label>
      <ion-label text-center class="label-data-detail"> {{infraccion.ano_vehiculo}}</ion-label>
     </ion-col>
-     <ion-col>
-    <ion-label   class="label-detail-title">Placa</ion-label>
-      <ion-label text-center class="label-data-detail">{{infraccion.placa_vehiculo}}</ion-label>
-    </ion-col>
   </ion-row>
 <ion-row >
    <ion-col>
@@ -123,7 +119,7 @@
     Esta Infraccion es sancionada con MULTA
   </ion-card-header>
   <ion-card-content text-center >
-     {{ infraccion.importe_pagar | currency:'bsf'}}
+     {{ infraccion.importe_pagar }} UT
   </ion-card-content>
 
 </ion-card>
