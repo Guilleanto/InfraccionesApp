@@ -39,18 +39,16 @@ private mydata: any;
 
     console.log("dato recibido:", navParams);
     this.data = this.navParams.get('ID');
-
+    this.cargartodos();
    /* this.data  = this.navParams.get("ID")
     console.log(this.data);*/
   }
-ionViewWillEnter(){
-  this.cargartodos();
-}
+
   //CREAMOS LA FUNCION DE CARGAR DATOS
   cargartodos( ){
     this.cedula =  localStorage.getItem("cedula_infractor");
     this.cedula = this.storage.get("cedula_infractor");
-    console.log("Buscando cedula:", this.cedula);
+    console.log("Buscando cedula:", this.data);
     let loader = this.loadCtrl.create({
           content:"Buscando...",
       });
