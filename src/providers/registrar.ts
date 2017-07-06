@@ -57,6 +57,8 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string, numerales:stri
     data.append("id_articulo" , id_articulo );
     data.append("retuvo_licencia" , retuvo_licencia );
     data.append("importe_pagar" , importe_pagar );
+    data.append("numerales" , numerales );
+    data.append("status_pago" , status_pago );
 
 
 

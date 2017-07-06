@@ -28,19 +28,18 @@ lugar:string="";
 tipo_vehiculo:string="";
 modelo_vehiculo:string="";
 ano_vehiculo:string="";
-placa_vehiculo:string="0";
+placa_vehiculo:string="";
 color_vehiculo:string="";
 serial_vehiculo:string="";
 retuvo_vehiculo:string="";
 id_articulo:string="";
 retuvo_licencia:string="";
 importe_pagar:string="";
-cedula:any;
 numerales:any = "numeral 1 : Conducir vehículos sin haber obtenido la licencia o título profesional correspondiete ";
 status_pago:any = "Sin Pagar";
 private arti: any;
 private ar:any;
-
+cedula:any;
 //articulos:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
