@@ -25,8 +25,14 @@
 <ion-item>
  <ion-label>Tipo De Vehiculo</ion-label>
      <ion-select  Placeholder="Seleccione" [(ngModel)]="tipo_vehiculo" [ngModelOptions]="{standalone: true}">
-    <ion-option value="1">Automatico</ion-option>
-    <ion-option value="2">Sincrónico</ion-option> Tipo de vehiculo</ion-select>
+    <ion-option value="1">Motocicletas</ion-option>
+    <ion-option value="2">Automóviles</ion-option>
+    <ion-option value="3">Minibuses</ion-option>
+    <ion-option value="4">Autobuses</ion-option>
+    <ion-option value="5">Vehiculos de carga</ion-option>
+    <ion-option value="6">Vehiculos especiales</ion-option>
+    <ion-option value="7">Otros aparatos  aptos  para circular</ion-option>
+    </ion-select>
   </ion-item>
   <ion-item>
     <ion-label>Modelo De Vehiculo</ion-label>
@@ -40,7 +46,10 @@
     Año
     <ion-input type="" placeholder="Año Vehiculo" [(ngModel)]="ano_vehiculo" [ngModelOptions]="{standalone: true}"></ion-input>
   </ion-item>
-
+<ion-item>
+    Placa
+    <ion-input type="" placeholder="Placa" [(ngModel)]="placa_vehiculo" [ngModelOptions]="{standalone: true}"></ion-input>
+  </ion-item>
   <ion-item>
     Color
     <ion-input type="" placeholder="Color" [(ngModel)]="color_vehiculo" [ngModelOptions]="{standalone: true}"></ion-input>
@@ -67,7 +76,7 @@
     <ion-label> Articulo</ion-label>
     <ion-select   [(ngModel)]="id_articulo" (ngModelChange)="updateSelectedValue($event)" [ngModelOptions]="{standalone: true}"  >
     <ion-option *ngFor=" let ar of arti" [value]=ar.id >{{ar.articulo}} </ion-option></ion-select>
-
+     <ion-label> {{id_articulo}}</ion-label>
   </ion-item>
 <ion-item>
   <ion-label *ngIf="ar == null">Descripción del articulo</ion-label>

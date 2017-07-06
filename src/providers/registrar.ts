@@ -39,7 +39,7 @@ activo():boolean{
 }
 registrar( id:string, infractor_id:string, fecha:string, hora:string, lugar:string, tipo_vehiculo:string,
 modelo_vehiculo:string,ano_vehiculo:string, placa_vehiculo:string, color_vehiculo:string, serial_vehiculo:string, retuvo_vehiculo:string,
-id_articulo:string, retuvo_licencia:string, importe_pagar:string){
+id_articulo:string, retuvo_licencia:string, importe_pagar:string, numerales:string, status_pago:string){
 // para ligar  los datos de los parametros con el plugin URLSEARCHPARAMS()
     let data = new URLSearchParams();
     data.append("id" , id );

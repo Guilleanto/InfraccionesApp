@@ -36,6 +36,8 @@ id_articulo:string="";
 retuvo_licencia:string="";
 importe_pagar:string="";
 cedula:any;
+numerales:any = "numeral 1 : Conducir vehículos sin haber obtenido la licencia o título profesional correspondiete ";
+status_pago:any = "Sin Pagar";
 private arti: any;
 private ar:any;
 
@@ -56,7 +58,7 @@ console.log(this.fecha);
     this.infractor_id =  localStorage.getItem("infractor_id");
       this._us.registrar(this.id, this.infractor_id, this.fecha, this.hora, this.lugar, this.tipo_vehiculo,
         this.modelo_vehiculo, this.ano_vehiculo, this.placa_vehiculo, this.color_vehiculo, this.serial_vehiculo,
-        this.retuvo_vehiculo, this.id_articulo, this.retuvo_licencia, this.importe_pagar).subscribe( ()=>{
+        this.retuvo_vehiculo, this.id_articulo, this.retuvo_licencia, this.importe_pagar, this.numerales, this.status_pago).subscribe( ()=>{
       })
        this.navCtrl.setRoot(InfraccionesPage);
 

@@ -23,8 +23,9 @@ id_infractor:any;
 registrar( id:string, user_id:string, nombre:string, apellido:string,
   cedula:string, direccion:string, correo:string, telefono:string, licencia:string){
 
-  this.id_usuario = id;
+  //this.id_usuario = id;
   let data = new URLSearchParams();
+
   data.append("id", id);
   data.append("user_id", user_id);
   data.append("nombre", nombre);

@@ -39,6 +39,7 @@ registrar(){
 
 
   this.user_id = localStorage.getItem("id_usuario");
+  console.log(this.user_id);
   this._cs.registrar(this.id, this.user_id, this.nombre, this.apellido,
    this.cedula,  this.direccion, this.correo, this.telefono, this.licencia).subscribe( ()=>{
 
