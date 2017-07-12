@@ -20,13 +20,12 @@ id_infractor:any;
 
     //solo se cargara una vez
   }
-registrar( id:string, user_id:string, nombre:string, apellido:string,
+registrar(user_id:string, nombre:string, apellido:string,
   cedula:string, direccion:string, correo:string, telefono:string, licencia:string){
 
   //this.id_usuario = id;
   let data = new URLSearchParams();
 
-  data.append("id", id);
   data.append("user_id", user_id);
   data.append("nombre", nombre);
   data.append("apellido", apellido);
@@ -55,8 +54,8 @@ registrar( id:string, user_id:string, nombre:string, apellido:string,
                     }else{
 
                       this.alertCtrl.create({
-                        title:"Infractor Registrado",
-                        subTitle: "Ifraccion Guardada",
+                        title:"Infracciòn",
+                        subTitle: "Infracciòn Guardada",
                         buttons: ["OK"]
                       }).present();
                       this.id_infractor = this.id_usuario;

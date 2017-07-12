@@ -18,6 +18,8 @@ import { DetailPage } from '../pages/detail/detail';
 import {BuscarPage} from '../pages/buscar/buscar';
 import {BusquedaPage} from '../pages/busqueda/busqueda';
 
+
+
 import { ImagePicker } from '@ionic-native/image-picker';
 
 
@@ -42,6 +44,7 @@ import { CreateService } from '../providers/createService';
     DetailPage,
     BusquedaPage,
     BuscarPage
+
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,7 @@ import { CreateService } from '../providers/createService';
     DetailPage,
     BusquedaPage,
     BuscarPage
+
   ],
   providers: [
     StatusBar,

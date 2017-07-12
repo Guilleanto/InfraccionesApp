@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {HomePage} from "../home/home";
 import { Storage } from "@ionic/storage";
 import { CreateService } from "../../providers/createService";
 /**
@@ -16,7 +16,7 @@ import { CreateService } from "../../providers/createService";
 })
 export class CreatePage {
 
-id:string="";
+
 user_id:string="";
 nombre:string="";
 apellido:string="";
@@ -39,10 +39,11 @@ registrar(){
 
 
   this.user_id = localStorage.getItem("id_usuario");
-  console.log(this.user_id);
-  this._cs.registrar(this.id, this.user_id, this.nombre, this.apellido,
+  console.log(this.user_id, this.licencia);
+  this._cs.registrar( this.user_id, this.nombre, this.apellido,
    this.cedula,  this.direccion, this.correo, this.telefono, this.licencia).subscribe( ()=>{
 
   })
+    this.navCtrl.setRoot(HomePage);
 }
 }

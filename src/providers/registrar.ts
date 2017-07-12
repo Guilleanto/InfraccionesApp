@@ -37,12 +37,12 @@ activo():boolean{
     return false;
   }
 }
-registrar( id:string, infractor_id:string, fecha:string, hora:string, lugar:string, tipo_vehiculo:string,
-modelo_vehiculo:string,ano_vehiculo:string, placa_vehiculo:string, color_vehiculo:string, serial_vehiculo:string, retuvo_vehiculo:string,
-id_articulo:string, retuvo_licencia:string, importe_pagar:string, numerales:string, status_pago:string){
+registrar( infractor_id:string, fecha:string, hora:string, lugar:string, tipo_vehiculo:string,
+modelo_vehiculo:string,ano_vehiculo:string, placa_vehiculo:string, color_vehiculo:string, retuvo_vehiculo:string,
+id_articulo:string, retuvo_licencia:string, importe_pagar:string, numerales:string){
 // para ligar  los datos de los parametros con el plugin URLSEARCHPARAMS()
     let data = new URLSearchParams();
-    data.append("id" , id );
+
     data.append("infractor_id" , infractor_id );
     data.append("fecha" , fecha );
     data.append("hora" , hora );
@@ -52,13 +52,12 @@ id_articulo:string, retuvo_licencia:string, importe_pagar:string, numerales:stri
     data.append("ano_vehiculo" , ano_vehiculo );
     data.append("placa_vehiculo" , placa_vehiculo );
     data.append("color_vehiculo" , color_vehiculo );
-    data.append("serial_vehiculo" , serial_vehiculo );
     data.append("retuvo_vehiculo" , retuvo_vehiculo );
     data.append("id_articulo" , id_articulo );
     data.append("retuvo_licencia" , retuvo_licencia );
     data.append("importe_pagar" , importe_pagar );
     data.append("numerales" , numerales );
-    data.append("status_pago" , status_pago );
+
 
 
 

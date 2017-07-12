@@ -15,32 +15,48 @@
 <form  #form="ngForm" novalidate>
 
    <ion-item>
-    Nombre
-    <ion-input type="" placeholder="Nombre" [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}"  ></ion-input>
+
+    <ion-input type="" placeholder="Nombre" [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}"  >
+
+
+    </ion-input>
   </ion-item>
 <ion-item>
-    Apellido
-    <ion-input type="" placeholder="Apellido" [(ngModel)]="apellido" [ngModelOptions]="{standalone: true}"></ion-input>
+
+    <ion-input type="" placeholder="Apellido" [(ngModel)]="apellido" [ngModelOptions]="{standalone: true}">
+
+
+    </ion-input>
   </ion-item>
   <ion-item>
-    Cedula
-    <ion-input type="number" placeholder="Cedula" [(ngModel)]="cedula" [ngModelOptions]="{standalone: true}"></ion-input>
+
+    <ion-input type="number" placeholder="Cedula" [(ngModel)]="cedula" [ngModelOptions]="{standalone: true}">
+
+
+    </ion-input>
   </ion-item>
 <ion-item>
-    tipo de vehiculo
-    <ion-input type="" placeholder="Direccion" [(ngModel)]="direccion" [ngModelOptions]="{standalone: true}"></ion-input>
+
+    <ion-input type="" placeholder="Direccion" [(ngModel)]="direccion" [ngModelOptions]="{standalone: true}">
+
+
+    </ion-input>
   </ion-item>
+
   <ion-item>
-    Direccion
-    <ion-input type="" placeholder="correo" [(ngModel)]="correo" [ngModelOptions]="{standalone: true}"></ion-input>
+    <ion-input type="email" placeholder="correo" [(ngModel)]="correo" [ngModelOptions]="{standalone: true}">
+    </ion-input>
   </ion-item>
+
   <ion-item>
-    Año
-    <ion-input type="" placeholder="telefono" [(ngModel)]="telefono" [ngModelOptions]="{standalone: true}"></ion-input>
+
+    <ion-input type="" placeholder="telefono" [(ngModel)]="telefono" [ngModelOptions]="{standalone: true}">
+    </ion-input>
   </ion-item>
+
 <ion-item>
-    Licencia
-    <ion-select type="" placeholder="licencia" [(ngModel)]="licencia" [ngModelOptions]="{standalone: true}" multiple="true" okText="Elegir" cancelText="Cancelar">
+
+    <ion-select type="" placeholder="licencia" [(ngModel)]="licencia" [ngModelOptions]="{standalone: true}">
       <ion-option value="1">1</ion-option>
     <ion-option value="2">2</ion-option>
     <ion-option value="3">3</ion-option>

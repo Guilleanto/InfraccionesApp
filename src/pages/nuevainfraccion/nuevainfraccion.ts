@@ -19,7 +19,7 @@ imgPreview:string = null;
 img:string = null;
 
 
-id:string="";
+
 infractor_id:any;//PILAS CON ESTO SE DEBE CAMBIAR AL ID DEL INSFRACCTOR
 //fecha:string="";
 fecha: string = new Date().toISOString();
@@ -30,13 +30,12 @@ modelo_vehiculo:string="";
 ano_vehiculo:string="";
 placa_vehiculo:string="";
 color_vehiculo:string="";
-serial_vehiculo:string="";
 retuvo_vehiculo:string="";
 id_articulo:string="";
 retuvo_licencia:string="";
 importe_pagar:string="";
-numerales:any = "numeral 1 : Conducir vehículos sin haber obtenido la licencia o título profesional correspondiete ";
-status_pago:any = "Sin Pagar";
+numerales:any = "";
+
 private arti: any;
 private ar:any;
 cedula:any;
@@ -55,11 +54,11 @@ console.log(this.fecha);
 
 
     this.infractor_id =  localStorage.getItem("infractor_id");
-      this._us.registrar(this.id, this.infractor_id, this.fecha, this.hora, this.lugar, this.tipo_vehiculo,
-        this.modelo_vehiculo, this.ano_vehiculo, this.placa_vehiculo, this.color_vehiculo, this.serial_vehiculo,
-        this.retuvo_vehiculo, this.id_articulo, this.retuvo_licencia, this.importe_pagar, this.numerales, this.status_pago).subscribe( ()=>{
+      this._us.registrar(this.infractor_id, this.fecha, this.hora, this.lugar, this.tipo_vehiculo,
+        this.modelo_vehiculo, this.ano_vehiculo, this.placa_vehiculo, this.color_vehiculo, this.retuvo_vehiculo,
+         this.id_articulo, this.retuvo_licencia, this.importe_pagar, this.numerales).subscribe( ()=>{
       })
-       this.navCtrl.setRoot(InfraccionesPage);
+       this.navCtrl.setRoot(HomePage);
 
 
   }

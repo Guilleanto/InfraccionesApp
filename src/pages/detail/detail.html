@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Infraccion {{infraccion.id}}</ion-title>
+    <ion-title>Infraccion {{infraccion.nombre}}  {{infraccion.apellido}} </ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -68,7 +68,7 @@
     </ion-col>
     <ion-col>
     <ion-label text-center class="label-detail-title">Modelo</ion-label>
-     <ion-label class="label-data-detail">{{infraccion.modelo_vehiculo}}</ion-label>
+     <ion-label text-center class="label-data-detail">{{infraccion.modelo_vehiculo}}</ion-label>
     </ion-col>
    <ion-col>
     <ion-label  class="label-detail-title">año</ion-label>
@@ -81,10 +81,6 @@
      <ion-label text-center class="label-data-detail"> {{infraccion.color_vehiculo}}</ion-label>
     </ion-col>
      <ion-col>
-    <ion-label class="label-detail-title">Serial</ion-label>
-     <ion-label text-center class="label-data-detail"> {{infraccion.serial_vehiculo}}</ion-label>
-    </ion-col>
-     <ion-col>
     <ion-label class="label-detail-title">Retuvo Vehiculo</ion-label>
      <ion-label text-center class="label-data-detail"> {{infraccion.retuvo_vehiculo}}</ion-label>
     </ion-col>
@@ -95,16 +91,16 @@
 
 <ion-card>
 
-  <ion-card-header text-center>
+  <ion-card-header >
    <h3 > Norma</h3>
   </ion-card-header>
   <ion-card-content>
-  <ion-row >
+  <ion-row  >
     <ion-col>
     <ion-label class="label-detail-title">Articulo</ion-label>
-     {{infraccion.id_articulo}}
+     {{infraccion.articulo}}
     </ion-col>
-    <ion-col>
+    <ion-col style="white-space: normal;" >
     <ion-label class="label-detail-title">Descripcion Articulo</ion-label>
     {{infraccion.descripcion}}
     </ion-col>
