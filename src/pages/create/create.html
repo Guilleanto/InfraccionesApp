@@ -30,9 +30,8 @@
   </ion-item>
   <ion-item>
 
-    <ion-input type="number" placeholder="Cedula" [(ngModel)]="cedula" [ngModelOptions]="{standalone: true}">
-
-
+    <ion-input type="number" placeholder="{{cedula}}" [(ngModel)]="cedula" [ngModelOptions]="{standalone: true}">
+      {{cedula}}
     </ion-input>
   </ion-item>
 <ion-item>

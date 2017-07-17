@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController, Platform } from 'ionic-angular';
+import { NavController, NavParams, ToastController, Platform, LoadingController } from 'ionic-angular';
 import {HomePage} from "../home/home";
 import {InfraccionesPage} from "../infracciones/infracciones";
 import { Http } from '@angular/http';
@@ -23,11 +23,11 @@ img:string = null;
 infractor_id:any;//PILAS CON ESTO SE DEBE CAMBIAR AL ID DEL INSFRACCTOR
 //fecha:string="";
 fecha: string = new Date().toISOString();
-hora:string="";
+hora:string =  new Date().toISOString();
 lugar:string="";
 tipo_vehiculo:string="";
 modelo_vehiculo:string="";
-ano_vehiculo:string="";
+ano_vehiculo:string= "";
 placa_vehiculo:string="";
 color_vehiculo:string="";
 retuvo_vehiculo:string="";
@@ -38,11 +38,12 @@ numerales:any = "";
 
 private arti: any;
 private ar:any;
+private ut:any;
 cedula:any;
 //articulos:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private _us:UsuarioService, public http: Http, private storage: Storage, private platform: Platform, private image:ImagePicker, private toastCtrol: ToastController) {
+              private _us:UsuarioService, public loadCtrl: LoadingController, public http: Http, private storage: Storage, private platform: Platform, private image:ImagePicker, private toastCtrol: ToastController) {
 this.cargar_articulos();
 console.log(this.fecha);
 
@@ -58,10 +59,17 @@ console.log(this.fecha);
         this.modelo_vehiculo, this.ano_vehiculo, this.placa_vehiculo, this.color_vehiculo, this.retuvo_vehiculo,
          this.id_articulo, this.retuvo_licencia, this.importe_pagar, this.numerales).subscribe( ()=>{
       })
-       this.navCtrl.setRoot(HomePage);
+         let loader = this.loadCtrl.create({
+          content:"Registrando...",
+      });loader.present();
+       setTimeout(()=>{
+          loader.dismiss();
+          this.navCtrl.setRoot(HomePage);
+                }, 3000)
+
+}
 
 
-  }
 updateSelectedValue(event: any){
     this.id_articulo = JSON.parse(event);
     console.log(this.id_articulo);
@@ -72,6 +80,7 @@ updateSelectedValue(event: any){
          .subscribe( (data_resp) =>{
            console.log(data_resp);
            this.ar = data_resp;
+           this.ut = this.ar.ut;
            console.log(this.ar.descripcion);
            //this.articulos = this.mydata.infraccion;
          },error =>{

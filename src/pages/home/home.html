@@ -33,7 +33,7 @@
 
 
 </ion-list>
-<button ion-button [disabled]="data.cedula.length == null || data.cedula.length < 1" (click)="buscar()" block>Buscar </button>
+<button ion-button [disabled]="data.cedula.length == null || data.cedula.length < 1 || data.cedula.length > 8 " (click)="buscar()" block>Buscar </button>
 
 
 

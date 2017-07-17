@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import {HomePage} from "../home/home";
 import { Storage } from "@ionic/storage";
 import { CreateService } from "../../providers/createService";
@@ -20,7 +20,7 @@ export class CreatePage {
 user_id:string="";
 nombre:string="";
 apellido:string="";
-cedula:string="";
+cedula:any;
 direccion:string="";
 correo:string="";
 telefono:string="";
@@ -29,8 +29,11 @@ licencia:string="";
 
 
 
-  constructor(private storage:Storage, public navCtrl: NavController,
+  constructor(private storage:Storage, public loadCtrl:  LoadingController, public navCtrl: NavController,
    public navParams: NavParams, private _cs: CreateService) {
+     this.storage.get("cedula_infractor").then( value =>{
+  this.cedula = value;
+});
   }
 
 
@@ -44,6 +47,13 @@ registrar(){
    this.cedula,  this.direccion, this.correo, this.telefono, this.licencia).subscribe( ()=>{
 
   })
-    this.navCtrl.setRoot(HomePage);
+    let loader = this.loadCtrl.create({
+          content:"Registrando...",
+      });loader.present();
+       setTimeout(()=>{
+          loader.dismiss();
+          this.navCtrl.setRoot(HomePage);
+                }, 3000)
+
 }
 }

@@ -14,12 +14,23 @@
   <ion-card-content>
   <ion-row >
  <ion-col>
-    <ion-label  class="label-detail-title">Nombre</ion-label>
-      <ion-label class="label-data-detail">{{infraccion.nombre}}</ion-label>
+    <ion-label  class="label-detail-title">Al Ciudadano: </ion-label>
+      <ion-label class="label-data-detail">{{infraccion.nombre}} {{infraccion.apellido}}</ion-label>
     </ion-col>
     <ion-col>
-    <ion-label  class="label-detail-title">Apellido</ion-label>
-      <ion-label class="label-data-detail">{{infraccion.apellido}}</ion-label>
+    <ion-label  class="label-detail-title">Cedula</ion-label>
+      <ion-label class="label-data-detail">{{infraccion.cedula}}</ion-label>
+    </ion-col>
+
+  </ion-row>
+  <ion-row>
+  <ion-col>
+    <ion-label  class="label-detail-title">Telefono</ion-label>
+      <ion-label class="label-data-detail">{{infraccion.telefono}}</ion-label>
+    </ion-col>
+    <ion-col>
+    <ion-label  class="label-detail-title">Correo</ion-label>
+      <ion-label class="label-data-detail">{{infraccion.correo}}</ion-label>
     </ion-col>
   </ion-row>
 
@@ -67,7 +78,7 @@
       <ion-label text-center class="label-data-detail">{{infraccion.tipo_vehiculo}}</ion-label>
     </ion-col>
     <ion-col>
-    <ion-label text-center class="label-detail-title">Modelo</ion-label>
+    <ion-label text-center class="label-detail-title">Marca</ion-label>
      <ion-label text-center class="label-data-detail">{{infraccion.modelo_vehiculo}}</ion-label>
     </ion-col>
    <ion-col>
@@ -76,13 +87,21 @@
     </ion-col>
   </ion-row>
 <ion-row >
+<ion-col>
+    <ion-label  class="label-detail-title">Placa</ion-label>
+      <ion-label class="label-data-detail">{{infraccion.placa_vehiculo}}</ion-label>
+    </ion-col>
    <ion-col>
     <ion-label class="label-detail-title">Color</ion-label>
      <ion-label text-center class="label-data-detail"> {{infraccion.color_vehiculo}}</ion-label>
     </ion-col>
      <ion-col>
-    <ion-label class="label-detail-title">Retuvo Vehiculo</ion-label>
+    <ion-label class="label-detail-title">¿Retuvo Vehiculo?</ion-label>
      <ion-label text-center class="label-data-detail"> {{infraccion.retuvo_vehiculo}}</ion-label>
+    </ion-col>
+    <ion-col>
+    <ion-label class="label-detail-title">¿Retuvo Licencia?</ion-label>
+     <ion-label text-center class="label-data-detail"> {{infraccion.retuvo_licencia}}</ion-label>
     </ion-col>
 </ion-row>
   </ion-card-content>
@@ -92,7 +111,7 @@
 <ion-card>
 
   <ion-card-header >
-   <h3 > Norma</h3>
+   <h3 text-center> Norma</h3>
   </ion-card-header>
   <ion-card-content>
   <ion-row  >
@@ -115,8 +134,13 @@
     Esta Infraccion es sancionada con MULTA
   </ion-card-header>
   <ion-card-content text-center >
-     {{ infraccion.importe_pagar }} UT
+     {{ infraccion.importe_pagar }} UT (Unidades Tributarias) / {{cantidad}} BSF
   </ion-card-content>
-
+  </ion-card>
+<ion-card>
+<ion-card-header text-center>
+    Foto vehiculo
+  </ion-card-header>
+  <img src="assets/img/{{infraccion.vehiculo_foto}}">
 </ion-card>
 </ion-content>

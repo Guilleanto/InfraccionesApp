@@ -15,11 +15,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class DetailPage {
 
 infraccion:any= {};
-
+cantidad:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     console.log(this.navParams.get("detail"));
 
     this.infraccion = this.navParams.get("detail");
+    this.cantidad = this.infraccion.ut * 300;
   }
 
 
